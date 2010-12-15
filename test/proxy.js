@@ -17,8 +17,11 @@ exports.socks5 = function (assert) {
     var server = socks5.createServer(function (req, res) {
         assert.eql(req.host, 'moo');
         assert.eql(req.port, 8080);
-        res.write(new Buffer('oh hello'));
-        res.end();
+        res.write(new Buffer('oh hello '));
+        res.on('data', function (buf) {
+            res.write(buf);
+            res.end();
+        });
     });
     server.listen(port, ready);
     
@@ -30,11 +33,12 @@ exports.socks5 = function (assert) {
         
         stream.on('connect', function () {
             clearTimeout(tc);
+            stream.write(new Buffer('pow!'));
         });
         
         stream.on('data', function (buf) {
             clearTimeout(td);
-            assert.eql(buf.toString(), 'oh hello');
+            assert.eql(buf.toString(), 'oh hello pow!');
             stream.end();
         });
         
