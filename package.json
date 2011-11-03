@@ -1,26 +1,18 @@
 {
-    "name" : "prox",
-    "version" : "0.0.2",
-    "description" : "Hookable socks5 proxy client and server.",
-    "modules" : {
-        "index" : "./lib/index"
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "http://github.com/substack/node-prox.git"
-    },
-    "keywords": [
-        "proxy",
-        "socks5",
-    ],
-    "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
-    },
-    "dependencies" : {
-        "binary" : ">=0.0.6"
-    },
-    "license" : "MIT/X11",
-    "engine" : ["node >=0.2.0"]
+  "author": "James Halliday <mail@substack.net> (http://substack.net)",
+  "name": "prox",
+  "description": "Hookable socks5 proxy client and server.",
+  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lwille/node-prox.git"
+  },
+  "main": "./lib/index",
+  "engines": {
+    "node": "~v0.4.9"
+  },
+  "dependencies": {
+      "binary" : ">=0.0.6"
+  },
+  "devDependencies": {}
 }
