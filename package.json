@@ -1,6 +1,6 @@
 {
     "name" : "prox",
-    "version" : "0.0.2",
+    "version" : "0.0.3",
     "description" : "Hookable socks5 proxy client and server.",
     "modules" : {
         "index" : "./lib/index"

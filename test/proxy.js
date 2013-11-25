@@ -69,8 +69,8 @@ exports.socks5_raw_client = function (assert) {
     var server = socks5.createServer(function (req, res) {
         assert.eql(req.host, 'moo');
         assert.eql(req.port, 8080);
-        res.write(new Buffer('oh hello '));
         res.on('data', function (buf) {
+            res.write(new Buffer('oh hello '));
             res.write(buf);
             res.end();
         });
@@ -79,9 +79,7 @@ exports.socks5_raw_client = function (assert) {
     
     function ready () {
         var stream = net.createConnection(port);
-
-        Put()
-            .write(stream);
+        
         var stream = socks5
             .createConnection('localhost', port)
             .connect('moo', 8080)
